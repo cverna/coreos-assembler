@@ -86,7 +86,7 @@ getconfig_def() {
     jq -re .'"'$k'"'//'"'${default}'"' < ${config}
 }
 
-rootfs_type=$(getconfig rootfs)
+rootfs_type=$(getconfig rootfs);
 case "${rootfs_type}" in
     xfs|ext4verity|btrfs) ;;
     *) echo "Invalid rootfs type: ${rootfs_type}" 1>&2; exit 1;;
